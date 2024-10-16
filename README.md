@@ -14,4 +14,4 @@ https://test-todos-five.vercel.app/
 
 2.Установить зависимости npm install
 
-3.Запустить приложение npm run dev
+3.Запустить приложение npm run start
