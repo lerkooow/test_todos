@@ -15,6 +15,12 @@ function TodoAddTask() {
     localStorage.removeItem("task");
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleAddTodo();
+    }
+  };
+
   return (
     <div>
       <div className="flex">
@@ -22,6 +28,7 @@ function TodoAddTask() {
           placeholder="What needs to be done?"
           value={task}
           onChange={(e) => setTask(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="w-full p-4 border focus:outline-none"
         />
         <button
