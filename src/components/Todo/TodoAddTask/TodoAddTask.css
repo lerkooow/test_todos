@@ -1,0 +1,10 @@
+.add-task {
+  height: 60px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
