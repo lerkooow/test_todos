@@ -1,5 +1,4 @@
 import TodoItem from "../TodoItem/TodoItem";
-import "./TodoMain.css";
 
 function TodoMain() {
   return (

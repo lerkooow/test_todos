@@ -1,19 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, selectAllTodo, toggleTodo, clearCompleted } from "../../../toolkitRedux/todoSlice";
 import TodoAddTask from "../TodoAddTask/TodoAddTask";
-import { Checkbox } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { useState } from "react";
 
 function TodoItem() {
-  console.log(1);
   const todo = useSelector(selectAllTodo);
   const dispatch = useDispatch();
-  console.log(2);
 
   const [filter, setFilter] = useState("all");
-  console.log(3);
-
   const filteredTodo = todo.filter((todo) => {
     if (filter === "completed") return todo.checked;
     if (filter === "active") return !todo.checked;
@@ -32,14 +27,19 @@ function TodoItem() {
     } else {
       return filteredTodo.map((item) => (
         <div className="flex items-center justify-between" key={item.id}>
-          <li className={`p-2 rounded-md mb-2 transition-colors ${item.checked ? "line-through" : ""}`}>
-            <Checkbox
+          <li
+            className={`p-2 rounded-md mb-2 transition-colors flex items-center ${item.checked ? "line-through" : ""}`}
+          >
+            <input
               checked={item.checked}
               onChange={() => dispatch(toggleTodo(item.id))}
               color="default"
               aria-label={item.task}
+              data-testid={`check-${item.id}`}
+              type="checkbox"
+              className="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
             />
-            <span className="text-gray-700">{item.task}</span>
+            <span className="text-gray-700 ml-3 text-xl">{item.task}</span>
           </li>
           <button
             data-testid={`delete-${item.id}`}
@@ -52,8 +52,6 @@ function TodoItem() {
       ));
     }
   })();
-
-  console.log(4);
 
   return (
     <div className="shadow-lg">
