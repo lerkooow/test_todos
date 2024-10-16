@@ -6,10 +6,12 @@
 
 ## Ссылка на проект:
 
+https://test-todos-five.vercel.app/
+
 ## Установка и запуск приложения:
 
 1.Клонировать репозиторий на свое устройство git clone https://github.com/lerkooow/test_todos
 
 2.Установить зависимости npm install
 
-3.Запустить приложение npm run dev
+3.Запустить приложение npm run start
